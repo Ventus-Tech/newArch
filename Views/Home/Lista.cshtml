@@ -1,0 +1,42 @@
+@model IEnumerable<t.Models.Personas>
+@{
+    ViewData["Title"] = "Lista de Personas";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p></p>
+<a  asp-controller="Home" asp-action="Index"   class="btn btn-primary">Nuevo</a>
+<table class="table">
+    <thead>
+        <tr>
+        <td>Id Persona</td>
+        <td>Nombre</td>
+        <td>Telefono</td>
+        <td>Editar</td>
+        <td>Borrar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var m in Model){
+    <tr>
+        <td>
+            @m.IdPersona
+        </td>
+        <td>
+            @m.Nombre
+        </td>
+        <td>
+            @m.Telefono
+        </td>
+        <td>
+            <a asp-controller="Home" asp-action="Editar" asp-route-id="@m.IdPersona"  class="btn btn-primary">Editar</a>
+        </td>
+        <td>
+            <a asp-controller="Home" asp-action="Borrar" asp-route-id="@m.IdPersona" class="btn btn-primary">Borrar</a>
+        </td>
+    </tr> }
+    </tbody>
+</table>
+
+ 

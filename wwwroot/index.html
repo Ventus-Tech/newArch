@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="PersonasApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Personas</title>
+ 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-resource.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
+   
+
+</head>
+<body ng-cloak>
+    <div ng-controller="apiController">
+ 
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Director</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="persona in Personas">
+                    <td>{{persona.IdPersona}}</td>
+                    <td>{{persona.Nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+   
+ 
+       <script src="js/app/app.js"></script>
+    </div>
+</body>
+</html>
