@@ -1,68 +1,67 @@
-(function () {
-    'use strict';
+ 
 
-    angular
-        .module("PersonasApp")
-        .controller("ListController", ListController);
-    function ListController($http) {
-        var vm = this;
-        vm.ListaPersonas = [];
-        vm.ListaDepos = [];
-        vm.back = false;
-        vm.MuestraTabla = true;
+    
+    app.controller("PeopleCtrl", ListController);
+    
+    function ListController($scope,$http) {
+      
+        $scope.ListaPersonas = [];
+        $scope.ListaDepos = [];
+        $scope.back = false;
+        $scope.MuestraTabla = true;
             
         // get Depos from server
         var DeposJson = $http.post('../Angular/DeposList');
         DeposJson.success(function (data) {
-            vm.ListaDepos = data;
+            $scope.ListaDepos = data;
         });
 
         var jsonResponse = $http.get("../Angular/List");
         jsonResponse.success(function (data, status, headers, config) {
-            vm.ListaPersonas = data;
+            $scope.ListaPersonas = data;
 
         });
 
-        vm.Borrar = function (row) {
+        $scope.Borrar = function (row) {
             if (confirm("¿Quiere eliminar el registro?")) {
                 $http.post("../Angular/Borrar", row.IdPersona).success(function (data) {
                     if (data == 1) {
-                        var index = vm.ListaPersonas.indexOf(row);
-                        vm.ListaPersonas.splice(index, 1);
+                        var index = $scope.ListaPersonas.indexOf(row);
+                        $scope.ListaPersonas.splice(index, 1);
                     }
                     else
                         alert("No se pudo borrar el registro");
                 });
             }
         };
-        vm.Regresar = function () {
-            vm.back = false;
-            vm.MuestraTabla = true;
+        $scope.Regresar = function () { 
+            $scope.back = false;
+            $scope.MuestraTabla = true;
         }
-        vm.Nuevo = function () {
-            vm.form = {};
-            vm.back = true;
-            vm.MuestraTabla = false;
+        $scope.Nuevo = function () { 
+            $scope.form = {};
+            $scope.back = true;
+            $scope.MuestraTabla = false;
 
         }
-        vm.Grabar = function (row) {
+        $scope.Grabar = function (row) {
             $http.post("../Angular/Grabar", row).success(function (data) {
 
                 if (data != null) {
-                    if (vm.Edita == false) {
+                    if ($scope.Edita == false) {
                         debugger;
-                        vm.ListaPersonas.push(data);
+                        $scope.ListaPersonas.push(data);
                     }
-                    vm.MuestraTabla = false;
+                    $scope.MuestraTabla = false;
 
                 }
             });
 
         }
-        vm.Editar = function (model) {
-            // var index = vm.ListaPersonas.indexOf(model);
-            vm.form = model;
+        $scope.Editar = function (model) {
+            // var index = $scope.ListaPersonas.indexOf(model);
+            $scope.form = model;
 
         }
     }
-})();
+ 

@@ -4,7 +4,7 @@
 }
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
-<div ng-controller="ListController">
+<div ng-controller="PeopleCtrl">
 
 <button  ng-show="!back" ng-click="Nuevo()" 
 class="btn btn-primary">Nuevo</button>
@@ -18,7 +18,7 @@ class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
                  <label>Nombre</label>
                  <br/>
                 <input class="form-control" type="text" ng-model="form.Nombre">
-                 
+                 <span ng-model="form.Nombre"></span>
                    <br/>
                  <label >Telefono</label>  
                  <br/>
@@ -36,7 +36,7 @@ class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
 
 
 <table st-table="displayedCollection" st-safe-src="ListaPersonas" class="table table-striped table-responsive" 
-ng-show="!MuestraTabla">
+ng-show="MuestraTabla">
     <thead>
         <tr>
         <th st-sort="IdPersona">ID Persona</th>
@@ -67,9 +67,6 @@ ng-show="!MuestraTabla">
     </tr> 
     
     </tbody> 
-</table>
-
-     
+</table> 
 </div>
-       
      
