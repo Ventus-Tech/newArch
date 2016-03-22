@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to ASP.NET 5
 
 We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
@@ -38,3 +39,6 @@ You've created a new ASP.NET 5 project. [Learn what's new](http://go.microsoft.c
 *   [Publish to Microsoft Azure Web Apps](http://go.microsoft.com/fwlink/?LinkID=398609)
 
 We would love to hear your [feedback](http://go.microsoft.com/fwlink/?LinkId=518015)
+=======
+# DotNetCoreAppTest
+>>>>>>> a0d2a684f830ebfe77dffd371c5315a2bde90828
